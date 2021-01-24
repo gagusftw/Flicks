@@ -19,7 +19,7 @@ Flicks is an app that allows users to browse movies from the [The Movie Database
 
 ### App Walkthough GIF
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="/walkthroughFlicks.gif"><br>
 
 ### Notes
 Understanding all of the interaction taking place between XML files, the RecyclerView and its adapter is still difficult for me to understand. In hindsight, I understand the process going on behind the scenes a little bit better, but I would struggle to reproduce the app from scratch.
