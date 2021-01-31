@@ -7,19 +7,31 @@
     android:background="#000000"
     tools:context=".MovieDetailsActivity">
 
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/ytDetailsPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:keepScreenOn="true"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="none" />
+
     <TextView
         android:id="@+id/tvDetailsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ytDetailsPlayer"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="10dp"
         android:background="#000000"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="187dp"
         tools:layout_editor_absoluteY="56dp"
@@ -30,9 +42,9 @@
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDetailsTitle"
+        android:layout_below="@+id/tvDetailsRelease"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="#000000"
         android:backgroundTint="#000000"
@@ -40,6 +52,8 @@
         android:numStars="10"
         android:progressBackgroundTint="#FFFFFF"
         android:progressTint="#FFFC21"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
         android:stepSize="0.5" />
 
     <TextView
@@ -48,10 +62,37 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rbDetailsRating"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="#000000"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         tools:text="MOVIE OVERVIEW" />
+
+    <TextView
+        android:id="@+id/tvDetailsRelease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDetailsTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        tools:text="RELEASE INFO" />
+
+    <TextView
+        android:id="@+id/tvDetailsVotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDetailsRelease"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/rbDetailsRating"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        tools:text="VOTE #" />
 </RelativeLayout>
