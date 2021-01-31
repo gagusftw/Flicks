@@ -24,6 +24,15 @@ Flicks is an app that allows users to browse movies from the [The Movie Database
 ### Notes
 Understanding all of the interaction taking place between XML files, the RecyclerView and its adapter is still difficult for me to understand. In hindsight, I understand the process going on behind the scenes a little bit better, but I would struggle to reproduce the app from scratch.
 
+###Development Summary
+-Used 3rd-party Asynchronous HTTP client to retrieve JSON data on currently-playing movies through the MovieDB API
+-Created Movie model class to encapsulate retrieved JSON data in a Movie object
+-Loaded data into List of Movie objects to be displayed in a View
+-Utilized RecyclerView to manage individual Movie items on the MainActivity
+-Described Movie item layout through XML
+-Used MovieAdapter to inflate XML into a View; defined how to bind data to View
+
+
 ### Open-source libraries used
 
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
