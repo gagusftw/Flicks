@@ -31,7 +31,7 @@
         android:background="#000000"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="187dp"
         tools:layout_editor_absoluteY="56dp"
@@ -51,7 +51,7 @@
         android:indeterminate="false"
         android:numStars="10"
         android:progressBackgroundTint="#FFFFFF"
-        android:progressTint="#FFFC21"
+        android:progressTint="#FFDF00"
         android:scaleX="1.0"
         android:scaleY="1.0"
         android:stepSize="0.5" />
@@ -67,7 +67,7 @@
         android:layout_marginEnd="10dp"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="16sp"
         tools:text="MOVIE OVERVIEW" />
 
     <TextView
@@ -95,4 +95,15 @@
         android:textSize="12sp"
         android:textStyle="italic"
         tools:text="VOTE #" />
+
+    <Button
+        android:id="@+id/btnDetailsBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        tools:text="BACK" />
 </RelativeLayout>

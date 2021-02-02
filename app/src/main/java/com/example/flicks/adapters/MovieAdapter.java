@@ -20,6 +20,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 //Used as an adapter to the RecyclerView we will implement
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
     Context context;

@@ -2,8 +2,11 @@ package com.example.flicks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -29,6 +32,7 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
     TextView tvDetailsRelease;
     RatingBar rbDetailsRating;
     TextView tvDetailsVotes;
+    Button btnDetailsBack;
     YouTubePlayerView ytDetailsPlayer;
 
     @Override
@@ -40,21 +44,35 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
         final String VIDEO_API_URL = String.format("https://api.themoviedb.org/3/movie/%s/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed",
                 movie.getId());
 
+        //Getting the references to the XML elements
         tvDetailsTitle = findViewById(R.id.tvDetailsTitle);
         tvDetailsOverview = findViewById(R.id.tvDetailsOverview);
         tvDetailsRelease = findViewById(R.id.tvDetailsRelease);
         rbDetailsRating = findViewById(R.id.rbDetailsRating);
         tvDetailsVotes = findViewById(R.id.tvDetailsVotes);
+        btnDetailsBack = findViewById(R.id.btnDetailsBack);
         ytDetailsPlayer = findViewById(R.id.ytDetailsPlayer);
 
         Log.d("MovieDetailsActivity", String.format("Received and unwrapped '%s'", movie.getTitle()));
 
+        //Initializing fields of the views
         tvDetailsTitle.setText(movie.getTitle());
         tvDetailsOverview.setText(movie.getOverview());
         tvDetailsRelease.setText(String.format("(%s)", movie.getRelease_year()));
         rbDetailsRating.setRating(movie.getVote_average().floatValue());
         tvDetailsVotes.setText(String.format("%d ratings", movie.getVote_count()));
+        btnDetailsBack.setText("BACK");
 
+        //Setting up basic button to help return to MainActivity
+        btnDetailsBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                MovieDetailsActivity.this.finish();
+            }
+        });
+
+        //Fetching necessary JSON data to get YouTube Trailer
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(VIDEO_API_URL, new JsonHttpResponseHandler() {
             @Override
@@ -62,9 +80,11 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
                 try {
                     JSONArray jsonArray = json.jsonObject.getJSONArray("results");
                     final String VIDEO_ID = jsonArray.getJSONObject(0).getString("key");
+                    //Initialize the YouTube Player
                     ytDetailsPlayer.initialize("AIzaSyBmCC4WmsV6vEAmkWCmL4jIyedn5-vfsz8", new YouTubePlayer.OnInitializedListener() {
                         @Override
                         public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                            //Load the video into the player
                             youTubePlayer.cueVideo(VIDEO_ID);
                         }
 
@@ -83,5 +103,7 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
                 Log.e("MovieDetailsActivity", "Async HTTP request error");
             }
         });
+
+
     }
 }
